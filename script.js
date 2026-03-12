@@ -1,28 +1,22 @@
-/* OPEN MEDITATION */
+/* OPEN PAGE */
 
 function openMeditation(type){
 
 localStorage.setItem("mode",type)
 
-/* play music trigger for browser permission */
-
-localStorage.setItem("playMusic","true")
-
-window.location="meditation.html"
+window.location.href="meditation.html"
 
 }
 
 
-/* BACKGROUND IMAGES */
+/* BACKGROUND SLIDESHOW */
 
 const images=[
-
-"images/meditate1.png",
-"images/meditate2.png",
-"images/meditate3.png",
-"images/meditate4.png",
-"images/meditate5.png"
-
+"meditate1.png",
+"meditate2.png",
+"meditate3.png",
+"meditate4.png",
+"meditate5.png"
 ]
 
 let bgIndex=0
@@ -48,7 +42,7 @@ bg.style.backgroundImage=`url(${images[bgIndex]})`
 }
 
 
-/* STEPS */
+/* MEDITATION STEPS */
 
 let steps=[]
 let stepIndex=0
@@ -111,7 +105,7 @@ const breathSteps=[
 ]
 
 
-/* SETUP MEDITATION */
+/* SETUP PAGE */
 
 function setupMeditation(){
 
@@ -128,7 +122,7 @@ if(mode==="stress"){
 
 steps=stressSteps
 title.innerText="Stress Meditation"
-music.src="music/om.mp3"
+music.src="om.mp3"
 
 }
 
@@ -137,7 +131,7 @@ if(mode==="anxiety"){
 
 steps=anxietySteps
 title.innerText="Anxiety Meditation"
-music.src="music/mahabharat.mp3"
+music.src="mahabharat.mp3"
 
 }
 
@@ -146,18 +140,14 @@ if(mode==="breath"){
 
 steps=breathSteps
 title.innerText="Breathlessness Meditation"
-music.src="music/hari.mp3"
+music.src="hari.mp3"
 
 }
 
 
-/* FORCE MUSIC PLAY */
-
-if(localStorage.getItem("playMusic")==="true"){
+/* play music */
 
 music.play().catch(()=>{})
-
-}
 
 }
 
@@ -177,7 +167,7 @@ stepIndex++
 }
 
 
-/* GO HOME */
+/* HOME BUTTON */
 
 function goHome(){
 
@@ -190,9 +180,7 @@ music.currentTime=0
 
 }
 
-localStorage.removeItem("playMusic")
-
-window.location="index.html"
+window.location.href="index.html"
 
 }
 
